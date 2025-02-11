@@ -3,9 +3,519 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Michelo Justus - Software Engineer & Cybersecurity Professional</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Animate.css -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <!-- Swiper CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-red: #dc3545;
+            --dark-red: #c82333;
+        }
+        
+        .bg-custom-red {
+            background-color: var(--primary-red);
+        }
+        
+        .text-custom-red {
+            color: var(--primary-red);
+        }
+        
+        .btn-custom-red {
+            background-color: var(--primary-red);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-custom-red:hover {
+            background-color: var(--dark-red);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-red) !important;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary-red);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .mentor-card {
+            border: 2px solid var(--primary-red);
+            transition: transform 0.3s ease;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .mentor-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(220, 53, 69, 0.2);
+        }
+
+        .section-title {
+            border-bottom: 3px solid var(--primary-red);
+            display: inline-block;
+            padding-bottom: 5px;
+            margin-bottom: 2rem;
+        }
+
+        .profile-image {
+            border: 4px solid var(--primary-red);
+            border-radius: 50%;
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05);
+        }
+
+        .achievement-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(220, 53, 69, 0.2) !important;
+        }
+
+        .icon-circle {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            background-color: var(--primary-red);
+            color: white;
+            transition: transform 0.3s ease;
+        }
+
+        .achievement-card:hover .icon-circle {
+            transform: scale(1.1);
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Project Carousel Styles */
+        .project-carousel {
+            padding: 40px 0;
+            position: relative;
+        }
+
+        .project-slide {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            height: 100%;
+        }
+
+        .project-slide:hover {
+            transform: translateY(-10px);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .tech-badge {
+            background: var(--primary-red);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+        }
+
+        .tech-badge:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(220, 53, 69, 0.2);
+        }
+
+        /* Skills Section */
+        .skill-card {
+            transition: all 0.3s ease;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .skill-icon {
+            font-size: 2rem;
+            color: var(--primary-red);
+            margin-bottom: 1rem;
+        }
+
+        /* Mentorship Grid Styles */
+        .mentorship-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .mentorship-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .mentorship-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .mentorship-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .expertise-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .expertise-item {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .expertise-item:hover {
+            background: var(--primary-red);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Contact Section */
+        .contact-icon {
+            font-size: 2.5rem;
+            color: var(--primary-red);
+            transition: transform 0.3s ease;
+        }
+
+        .contact-icon:hover {
+            transform: scale(1.1);
+        }
+
+        /* Footer */
+        .social-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .social-icon:hover {
+            transform: scale(1.2);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-red);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--dark-red);
+        }
+    </style>
 </head>
 <body>
-    <h1>Hello Case</h1>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow">
+        <div class="container">
+            <a class="navbar-brand text-custom-red fw-bold" href="#">
+                <i class="fas fa-code me-2"></i>Michelo Justus
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about"><i class="fas fa-user me-1"></i>About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects"><i class="fas fa-project-diagram me-1"></i>Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#achievements"><i class="fas fa-trophy me-1"></i>Achievements</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills"><i class="fas fa-tools me-1"></i>Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#mentorship"><i class="fas fa-hands-helping me-1"></i>Mentorship</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact"><i class="fas fa-envelope me-1"></i>Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="bg-custom-red text-white py-5 mt-5">
+        <div class="container py-5">
+            <div class="row py-5 align-items-center">
+                <div class="col-lg-4 text-center animate__animated animate__fadeInLeft">
+                    <img src="src/img/profile.png" alt="Michelo Justus" class="profile-image mb-4">
+                </div>
+                <div class="col-lg-8 animate__animated animate__fadeInRight">
+                    <h1 class="display-4 fw-bold">Transforming Ideas into Secure Solutions</h1>
+                    <p class="lead mb-4">As a Software Engineer and Cybersecurity Professional, I blend innovation with security to create robust digital experiences. With expertise in full-stack development and security architecture, I'm passionate about building solutions that make a difference.</p>
+                    <div class="mt-4">
+                        <a href="https://linkedin.com/in/amcodecase" class="btn btn-light me-3" target="_blank">
+                            <i class="fab fa-linkedin me-2"></i>LinkedIn
+                        </a>
+                        <a href="https://github.com/amcodecase" class="btn btn-light me-3" target="_blank">
+                            <i class="fab fa-github me-2"></i>GitHub
+                        </a>
+                        <a href="mailto:michelojustus@gmail.com" class="btn btn-light">
+                            <i class="fas fa-envelope me-2"></i>Email
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5 section-title">About Me</h2>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <p class="lead text-muted animate__animated animate__fadeIn">
+                        I'm a software engineer with a growing passion for building reliable and scalable solutions. I enjoy working across the stack, learning new technologies, and improving my problem-solving skills. My journey has involved developing web applications, exploring cloud infrastructure, and understanding how DevOps practices can streamline software delivery.
+                    </p>
+                    <p class="text-muted animate__animated animate__fadeIn">
+                        Currently, I'm focused on expanding my knowledge in backend development and cloud-based architectures while sharpening my DevOps skills. I love collaborating on projects, learning from experienced developers, and contributing to real-world solutions that make an impact.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Achievements Section -->
+<section id="achievements" class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-5 section-title">Achievements</h2>
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="achievement-card p-4">
+                    <div class="icon-circle mb-3">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h5>Founded ICTAZ Student Chapter</h5>
+                    <p>Founded the ICTAZ Student Chapter at Chalimbana University and served as President for 2 years, fostering a community of tech enthusiasts and innovators.</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="achievement-card p-4">
+                    <div class="icon-circle mb-3">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h5>Innovation Competition Winner</h5>
+                    <p>Led the team that won the Innovation Competition at ICTAZ 13th AGM, 2023, securing a victory with over 51% of the votes.</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="achievement-card p-4">
+                    <div class="icon-circle mb-3">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h5>ICTAZ Outstanding Male ICT Student</h5>
+                    <p>Awarded as the ICTAZ Outstanding Male ICT Student for the year 2024, recognizing excellence and contributions to the field of ICT.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Skills Section -->
+<section id="skills" class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-5 section-title">Skills</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="skill-card p-4">
+                    <i class="skill-icon fab fa-js"></i>
+                    <h5>JavaScript</h5>
+                    <p>Experienced with JavaScript and its ecosystem, including frameworks such as React, Node.js, and Express.js.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="skill-card p-4">
+                    <i class="skill-icon fab fa-python"></i>
+                    <h5>Python</h5>
+                    <p>Proficient in Python for automation, data analysis, backend systems, and scripting for web applications.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="skill-card p-4">
+                    <i class="skill-icon fas fa-lock"></i>
+                    <h5>Cybersecurity</h5>
+                    <p>Skilled in securing digital assets and implementing security protocols such as firewalls, encryption, and intrusion detection systems.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="skill-card p-4">
+                    <i class="skill-icon fab fa-php"></i>
+                    <h5>PHP with Laravel</h5>
+                    <p>Experienced in PHP development with expertise in the Laravel ecosystem for building robust and scalable web applications.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="skill-card p-4">
+                    <i class="skill-icon fas fa-microchip"></i>
+                    <h5>C++ for Embedded Systems</h5>
+                    <p>Proficient in C++ for developing efficient and reliable embedded systems, including firmware and low-level programming.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="skill-card p-4">
+                    <i class="skill-icon fab fa-linux"></i>
+                    <h5>Linux</h5>
+                    <p>Highly adept in Linux for system administration, scripting, server management, and automation tasks.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Mentorship Section -->
+<section id="mentorship" class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-5 section-title">Mentorship</h2>
+        <div class="mentorship-grid">
+            <div class="mentorship-card p-4">
+                <h5>Seeking Mentorship in Financial Technology</h5>
+                <p>Looking for guidance to transition into the fintech industry, with a focus on understanding banking systems, payment gateways, and financial software development.</p>
+            </div>
+            <div class="mentorship-card p-4">
+                <h5>Becoming the Go-To Expert for Banking Systems</h5>
+                <p>Aspiring to gain mentorship to master the intricacies of banking systems, including core banking platforms, transaction processing, and regulatory compliance.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5 section-title">Contact</h2>
+            <div class="row">
+                <div class="col-md-4 text-center">
+                    <a href="https://linkedin.com/in/amcodecase" target="_blank">
+                        <i class="contact-icon fab fa-linkedin"></i>
+                    </a>
+                </div>
+                <div class="col-md-4 text-center">
+                    <a href="mailto:michelojustus@gmail.com">
+                        <i class="contact-icon fas fa-envelope"></i>
+                    </a>
+                </div>
+                <div class="col-md-4 text-center">
+                    <a href="https://github.com/amcodecase" target="_blank">
+                        <i class="contact-icon fab fa-github"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-custom-red text-white py-4 text-center">
+        <p>&copy; 2025 Michelo Justus. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Bootstrap JS, Popper, Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <!-- Scroll Animation JS -->
+    <script>
+        // Initialize Swiper
+        const swiper = new Swiper('.swiper', {
+            loop: true,
+            slidesPerView: 1,
+            spaceBetween: 10,
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev'
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true
+            }
+        });
+
+        // Scroll animations
+        const elements = document.querySelectorAll('.animate-on-scroll');
+        window.addEventListener('scroll', () => {
+            elements.forEach(element => {
+                if (element.getBoundingClientRect().top < window.innerHeight) {
+                    element.classList.add('visible');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
