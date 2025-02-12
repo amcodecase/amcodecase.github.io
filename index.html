@@ -3,518 +3,373 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Michelo Justus - Software Engineer & Cybersecurity Professional</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <!-- Animate.css -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
-    <!-- Swiper CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" rel="stylesheet">
-    <style>
-        :root {
-            --primary-red: #dc3545;
-            --dark-red: #c82333;
-        }
-        
-        .bg-custom-red {
-            background-color: var(--primary-red);
-        }
-        
-        .text-custom-red {
-            color: var(--primary-red);
-        }
-        
-        .btn-custom-red {
-            background-color: var(--primary-red);
-            color: white;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-custom-red:hover {
-            background-color: var(--dark-red);
-            color: white;
-            transform: translateY(-2px);
-        }
-
-        .nav-link {
-            position: relative;
-            transition: color 0.3s ease;
-        }
-
-        .nav-link:hover {
-            color: var(--primary-red) !important;
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: var(--primary-red);
-            transition: width 0.3s ease;
-        }
-
-        .nav-link:hover::after {
-            width: 100%;
-        }
-
-        .mentor-card {
-            border: 2px solid var(--primary-red);
-            transition: transform 0.3s ease;
-            border-radius: 15px;
-            overflow: hidden;
-        }
-
-        .mentor-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(220, 53, 69, 0.2);
-        }
-
-        .section-title {
-            border-bottom: 3px solid var(--primary-red);
-            display: inline-block;
-            padding-bottom: 5px;
-            margin-bottom: 2rem;
-        }
-
-        .profile-image {
-            border: 4px solid var(--primary-red);
-            border-radius: 50%;
-            width: 250px;
-            height: 250px;
-            object-fit: cover;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-            transition: transform 0.3s ease;
-        }
-
-        .profile-image:hover {
-            transform: scale(1.05);
-        }
-
-        .achievement-card {
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border-radius: 15px;
-            overflow: hidden;
-        }
-
-        .achievement-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(220, 53, 69, 0.2) !important;
-        }
-
-        .icon-circle {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1rem;
-            background-color: var(--primary-red);
-            color: white;
-            transition: transform 0.3s ease;
-        }
-
-        .achievement-card:hover .icon-circle {
-            transform: scale(1.1);
-        }
-
-        .animate-on-scroll {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.5s ease;
-        }
-
-        .animate-on-scroll.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Project Carousel Styles */
-        .project-carousel {
-            padding: 40px 0;
-            position: relative;
-        }
-
-        .project-slide {
-            background: white;
-            border-radius: 15px;
-            padding: 20px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-            height: 100%;
-        }
-
-        .project-slide:hover {
-            transform: translateY(-10px);
-        }
-
-        .project-image {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 10px;
-            margin-bottom: 15px;
-        }
-
-        .tech-stack {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 15px;
-        }
-
-        .tech-badge {
-            background: var(--primary-red);
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            transition: all 0.3s ease;
-        }
-
-        .tech-badge:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 10px rgba(220, 53, 69, 0.2);
-        }
-
-        /* Skills Section */
-        .skill-card {
-            transition: all 0.3s ease;
-            border-radius: 15px;
-            overflow: hidden;
-        }
-
-        .skill-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-
-        .skill-icon {
-            font-size: 2rem;
-            color: var(--primary-red);
-            margin-bottom: 1rem;
-        }
-
-        /* Mentorship Grid Styles */
-        .mentorship-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-        }
-
-        @media (max-width: 768px) {
-            .mentorship-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .mentorship-card {
-            background: white;
-            border-radius: 15px;
-            padding: 25px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .mentorship-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .expertise-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .expertise-item {
-            background: #f8f9fa;
-            padding: 10px;
-            border-radius: 8px;
-            text-align: center;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .expertise-item:hover {
-            background: var(--primary-red);
-            color: white;
-            transform: translateY(-2px);
-        }
-
-        /* Contact Section */
-        .contact-icon {
-            font-size: 2.5rem;
-            color: var(--primary-red);
-            transition: transform 0.3s ease;
-        }
-
-        .contact-icon:hover {
-            transform: scale(1.1);
-        }
-
-        /* Footer */
-        .social-icon {
-            transition: transform 0.3s ease;
-        }
-
-        .social-icon:hover {
-            transform: scale(1.2);
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--primary-red);
-            border-radius: 5px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--dark-red);
-        }
-    </style>
+    <title>Michelo Justus - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="src/css/index.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow">
-        <div class="container">
-            <a class="navbar-brand text-custom-red fw-bold" href="#">
-                <i class="fas fa-code me-2"></i>Michelo Justus
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#about"><i class="fas fa-user me-1"></i>About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#projects"><i class="fas fa-project-diagram me-1"></i>Projects</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#achievements"><i class="fas fa-trophy me-1"></i>Achievements</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#skills"><i class="fas fa-tools me-1"></i>Skills</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#mentorship"><i class="fas fa-hands-helping me-1"></i>Mentorship</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact"><i class="fas fa-envelope me-1"></i>Contact</a></li>
-                </ul>
-            </div>
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fas fa-terminal"></i>
+            Michelo Justus
         </div>
+        <div class="mobile-menu">
+            <i class="fas fa-bars"></i>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home"><i class="fas fa-home"></i>Home</a></li>
+            <li><a href="#about"><i class="fas fa-user-secret"></i>About</a></li>
+            <li><a href="#achievements"><i class="fas fa-trophy"></i>Achievements</a></li>
+            <li><a href="#skills"><i class="fas fa-code"></i>Skills</a></li>
+            <li><a href="#gallery"><i class="fas fa-laptop-code"></i>Gallery</a></li>
+            <li><a href="#mentorship"><i class="fas fa-graduation-cap"></i>Mentorship</a></li>
+            <li><a href="#contact"><i class="fas fa-network-wired"></i>Contact</a></li>
+        </ul>
     </nav>
-
-    <!-- Hero Section -->
-    <header class="bg-custom-red text-white py-5 mt-5">
-        <div class="container py-5">
-            <div class="row py-5 align-items-center">
-                <div class="col-lg-4 text-center animate__animated animate__fadeInLeft">
-                    <img src="src/img/profile.png" alt="Michelo Justus" class="profile-image mb-4">
+    <main class="content">
+        <div class="content-overlay">
+            <h1>Welcome to My Portfolio</h1>
+            <p>Scroll down to explore my work and experience.</p>
+        </div>
+        <section id="about" class="about-section">
+    <div class="about-container">
+        <div class="about-header">
+            <h2><i class="fas fa-user-secret"></i> About Me</h2>
+            <div class="header-line"></div>
+        </div>
+        <div class="about-grid">
+            <div class="about-image">
+            <div class="image-container">
+                    <img src="src/img/profile3.png" alt="Profile Picture" />
+                    <div class="image-overlay">
+                        <div class="overlay-content">
+                            <i class="fas fa-code"></i>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-lg-8 animate__animated animate__fadeInRight">
-                    <h1 class="display-4 fw-bold">Transforming Ideas into Secure Solutions</h1>
-                    <p class="lead mb-4">As a Software Engineer and Cybersecurity Professional, I blend innovation with security to create robust digital experiences. With expertise in full-stack development and security architecture, I'm passionate about building solutions that make a difference.</p>
-                    <div class="mt-4">
-                        <a href="https://linkedin.com/in/amcodecase" class="btn btn-light me-3" target="_blank">
-                            <i class="fab fa-linkedin me-2"></i>LinkedIn
-                        </a>
-                        <a href="https://github.com/amcodecase" class="btn btn-light me-3" target="_blank">
-                            <i class="fab fa-github me-2"></i>GitHub
-                        </a>
-                        <a href="mailto:michelojustus@gmail.com" class="btn btn-light">
-                            <i class="fas fa-envelope me-2"></i>Email
-                        </a>
+                </div>
+            <div class="about-content">
+                <div class="terminal-window">
+                    <div class="terminal-header">
+                        <div class="terminal-buttons">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div class="terminal-title">about.sh</div>
+                    </div>
+                    <div class="terminal-body">
+                        <p><span class="terminal-prompt">$</span> <span class="command">whoami</span></p>
+                        <p class="response">Michelo M Justus</p>
+                        <p><span class="terminal-prompt">$</span> <span class="command">cat description.txt</span></p>
+                        <p class="response">I'm an aspiring software engineer and cybersecurity enthusiast. People call me "Case," but online, I'm known as "amcodecase." I'm passionate about learning everything there is to know about ethical hacking, system security, and software development. My goal is to build secure applications that make the digital world a safer place. Whether it's penetration testing, secure coding practices, or just diving into new challenges, I'm excited to keep growing in this field.</p>
+
+                        <p><span class="terminal-prompt">$</span> <span class="command">ls ./interests</span></p>
+                        <p class="response">📁 Ethical Hacking<br>📁 Software Engineering<br>📁 Education / Mentorship<br>📁 Innovation<br>📁 Financial Technology</p>
+                        <p><span class="terminal-prompt">$</span> <span class="command">./experience.sh</span></p>
+                        <p class="response">▶ Innovative Dynamics Limited as a software developer (Attachments) <br>▶ Zambia Qualifications Authority as a software developer (Internship) <br>▶ Chalimbana University ICTAZ Student Chapter President</p>
                     </div>
                 </div>
             </div>
         </div>
-    </header>
+    </div>
+ 
 
-    <!-- About Section -->
-    <section id="about" class="py-5">
-        <div class="container">
-            <h2 class="text-center mb-5 section-title">About Me</h2>
-            <div class="row">
-                <div class="col-lg-8 mx-auto">
-                    <p class="lead text-muted animate__animated animate__fadeIn">
-                        I'm a software engineer with a growing passion for building reliable and scalable solutions. I enjoy working across the stack, learning new technologies, and improving my problem-solving skills. My journey has involved developing web applications, exploring cloud infrastructure, and understanding how DevOps practices can streamline software delivery.
-                    </p>
-                    <p class="text-muted animate__animated animate__fadeIn">
-                        Currently, I'm focused on expanding my knowledge in backend development and cloud-based architectures while sharpening my DevOps skills. I love collaborating on projects, learning from experienced developers, and contributing to real-world solutions that make an impact.
-                    </p>
-                </div>
-            </div>
+
+
+
+
+ 
+
+    </main>
+  <section id="achievements" class="achievements-section">
+    <div class="section-container">
+        <div class="section-header">
+            <h2><i class="fas fa-trophy"></i> Achievements</h2>
+            <div class="header-line"></div>
         </div>
-    </section>
-    
-    <!-- Achievements Section -->
-<section id="achievements" class="py-5">
-    <div class="container">
-        <h2 class="text-center mb-5 section-title">Achievements</h2>
-        <div class="row">
-            <div class="col-lg-4">
-                <div class="achievement-card p-4">
-                    <div class="icon-circle mb-3">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h5>Founded ICTAZ Student Chapter</h5>
-                    <p>Founded the ICTAZ Student Chapter at Chalimbana University and served as President for 2 years, fostering a community of tech enthusiasts and innovators.</p>
+        <div class="achievements-grid">
+            <div class="achievement-card">
+                <div class="achievement-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3>ICTAZ AGM Innovation Champion</h3>
+                <p class="achievement-year">2023</p>
+                <p>Led a winning team at the 13th ICTAZ AGM university innovations competition, securing victory with over 51% of votes.</p>
+                <div class="skills-showcase">
+                    <span>Leadership</span>
+                    <span>Innovation</span>
+                    <span>Team Management</span>
                 </div>
             </div>
-            <div class="col-lg-4">
-                <div class="achievement-card p-4">
-                    <div class="icon-circle mb-3">
-                        <i class="fas fa-trophy"></i>
-                    </div>
-                    <h5>Innovation Competition Winner</h5>
-                    <p>Led the team that won the Innovation Competition at ICTAZ 13th AGM, 2023, securing a victory with over 51% of the votes.</p>
+            
+            <div class="achievement-card">
+                <div class="achievement-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>Digital Safe Cybersecurity Champion</h3>
+                <p class="achievement-year">2023</p>
+                <p>Achieved perfect score at the Zambia Tech Expo in a Digital Safe cybersecurity quiz, demonstrating exceptional security knowledge.</p>
+                <div class="skills-showcase">
+                    <span>Cybersecurity</span>
+                    <span>Technical Excellence</span>
+                    <span>Problem Solving</span>
                 </div>
             </div>
-            <div class="col-lg-4">
-                <div class="achievement-card p-4">
-                    <div class="icon-circle mb-3">
-                        <i class="fas fa-award"></i>
-                    </div>
-                    <h5>ICTAZ Outstanding Male ICT Student</h5>
-                    <p>Awarded as the ICTAZ Outstanding Male ICT Student for the year 2024, recognizing excellence and contributions to the field of ICT.</p>
+
+            <div class="achievement-card">
+                <div class="achievement-icon">
+                    <i class="fas fa-award"></i>
+                </div>
+                <h3>Outstanding ICTAZ Male ICT Student</h3>
+                <p class="achievement-year">2024</p>
+                <p>Recognized for academic excellence and creating the largest chapter, demonstrating exceptional leadership abilities.</p>
+                <div class="skills-showcase">
+                    <span>Academic Excellence</span>
+                    <span>Community Building</span>
+                    <span>Leadership</span>
+                </div>
+            </div>
+
+            <div class="achievement-card">
+                <div class="achievement-icon">
+                    <i class="fas fa-medal"></i>
+                </div>
+                <h3>IEEE UNZA Expo Bronze Medalist</h3>
+                <p class="achievement-year">2024</p>
+                <p>Secured 3rd position at the IEEE UNZA Expo, showcasing innovative technological solutions.</p>
+                <div class="skills-showcase">
+                    <span>Innovation</span>
+                    <span>Technical Skills</span>
+                    <span>Presentation</span>
+                </div>
+            </div>
+
+            <div class="achievement-card">
+                <div class="achievement-icon">
+                    <i class="fas fa-lightbulb"></i>
+                </div>
+                <h3>ZICTA ICT Innovation Challenge</h3>
+                <p class="achievement-year">2024</p>
+                <p>Participated in the prestigious ZICTA ICT Innovation Challenge, contributing innovative solutions to real-world problems.</p>
+                <div class="skills-showcase">
+                    <span>Innovation</span>
+                    <span>Problem Solving</span>
+                    <span>Technology</span>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-    <!-- Skills Section -->
-<section id="skills" class="py-5 bg-light">
-    <div class="container">
-        <h2 class="text-center mb-5 section-title">Skills</h2>
-        <div class="row">
-            <div class="col-md-4">
-                <div class="skill-card p-4">
-                    <i class="skill-icon fab fa-js"></i>
-                    <h5>JavaScript</h5>
-                    <p>Experienced with JavaScript and its ecosystem, including frameworks such as React, Node.js, and Express.js.</p>
+<section id="skills" class="skills-section">
+    <div class="section-container">
+        <div class="section-header">
+            <h2><i class="fas fa-code"></i> Skills</h2>
+            <div class="header-line"></div>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <div class="skill-icon">
+                    <i class="fas fa-microchip"></i>
+                </div>
+                <h3>Embedded Systems</h3>
+                <p>C++ for Arduino development</p>
+                <div class="skill-tags">
+                    <span>Hardware</span>
+                    <span>IoT</span>
+                    <span>Arduino</span>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="skill-card p-4">
-                    <i class="skill-icon fab fa-python"></i>
-                    <h5>Python</h5>
-                    <p>Proficient in Python for automation, data analysis, backend systems, and scripting for web applications.</p>
+
+            <div class="skill-card">
+                <div class="skill-icon">
+                    <i class="fas fa-terminal"></i>
+                </div>
+                <h3>Scripting & Systems</h3>
+                <p>Python & Bash scripting with Linux expertise</p>
+                <div class="skill-tags">
+                    <span>Python</span>
+                    <span>Bash</span>
+                    <span>Linux</span>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="skill-card p-4">
-                    <i class="skill-icon fas fa-lock"></i>
-                    <h5>Cybersecurity</h5>
-                    <p>Skilled in securing digital assets and implementing security protocols such as firewalls, encryption, and intrusion detection systems.</p>
+
+            <div class="skill-card">
+                <div class="skill-icon">
+                    <i class="fab fa-php"></i>
+                </div>
+                <h3>Web Development</h3>
+                <p>PHP development with Laravel framework</p>
+                <div class="skill-tags">
+                    <span>PHP</span>
+                    <span>Laravel</span>
+                    <span>MVC</span>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="skill-card p-4">
-                    <i class="skill-icon fab fa-php"></i>
-                    <h5>PHP with Laravel</h5>
-                    <p>Experienced in PHP development with expertise in the Laravel ecosystem for building robust and scalable web applications.</p>
+
+            <div class="skill-card">
+                <div class="skill-icon">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                </div>
+                <h3>Teaching & Training</h3>
+                <p>Experienced trainer at Chalimbana University</p>
+                <div class="skill-tags">
+                    <span>Teaching</span>
+                    <span>Mentoring</span>
+                    <span>Leadership</span>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="skill-card p-4">
-                    <i class="skill-icon fas fa-microchip"></i>
-                    <h5>C++ for Embedded Systems</h5>
-                    <p>Proficient in C++ for developing efficient and reliable embedded systems, including firmware and low-level programming.</p>
+
+            <div class="skill-card">
+                <div class="skill-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h3>Core Competencies</h3>
+                <p>Self-learning and rapid problem-solving abilities</p>
+                <div class="skill-tags">
+                    <span>Quick Learning</span>
+                    <span>Problem Solving</span>
+                    <span>Adaptability</span>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="skill-card p-4">
-                    <i class="skill-icon fab fa-linux"></i>
-                    <h5>Linux</h5>
-                    <p>Highly adept in Linux for system administration, scripting, server management, and automation tasks.</p>
+        </div>
+    </div>
+
+    <section id="mentorship" class="mentorship-section">
+    <div class="section-container">
+        <div class="section-header">
+            <h2><i class="fas fa-graduation-cap"></i> Mentorship</h2>
+            <div class="header-line"></div>
+        </div>
+        <div class="mentorship-container">
+            <div class="mentorship-card">
+                <div class="card-icon">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                </div>
+                <h3>Seeking Knowledge</h3>
+                <p>Always eager to learn and grow. If you're experienced in cybersecurity, development, or any tech field, I would love to learn from your expertise and experiences.</p>
+                <div class="card-tags">
+                    <span>#AlwaysLearning</span>
+                    <span>#GrowthMindset</span>
+                    <span>#TechPassion</span>
+                </div>
+            </div>
+            <div class="mentorship-card">
+                <div class="card-icon">
+                    <i class="fas fa-hands-helping"></i>
+                </div>
+                <h3>Let's Connect</h3>
+                <p>Whether you're looking to guide or be guided, let's connect and grow together in this ever-evolving tech landscape. Open to meaningful tech discussions and collaborations.</p>
+                <div class="card-tags">
+                    <span>#Community</span>
+                    <span>#Collaboration</span>
+                    <span>#TechCommunity</span>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Mentorship Section -->
-<section id="mentorship" class="py-5">
-    <div class="container">
-        <h2 class="text-center mb-5 section-title">Mentorship</h2>
-        <div class="mentorship-grid">
-            <div class="mentorship-card p-4">
-                <h5>Seeking Mentorship in Financial Technology</h5>
-                <p>Looking for guidance to transition into the fintech industry, with a focus on understanding banking systems, payment gateways, and financial software development.</p>
+<section id="contact" class="contact-section">
+    <div class="section-container">
+        <div class="section-header">
+            <h2><i class="fas fa-network-wired"></i> Contact</h2>
+            <div class="header-line"></div>
+        </div>
+        <div class="contact-grid">
+            <div class="contact-card">
+                <i class="fas fa-phone"></i>
+                <h3>Call</h3>
+                <p>0770822430</p>
             </div>
-            <div class="mentorship-card p-4">
-                <h5>Becoming the Go-To Expert for Banking Systems</h5>
-                <p>Aspiring to gain mentorship to master the intricacies of banking systems, including core banking platforms, transaction processing, and regulatory compliance.</p>
+            <div class="contact-card">
+                <i class="fab fa-whatsapp"></i>
+                <h3>WhatsApp</h3>
+                <p>0762585270</p>
+            </div>
+            <div class="contact-card">
+                <i class="fas fa-envelope"></i>
+                <h3>Email</h3>
+                <p>michelojustus@gmail.com</p>
+            </div>
+        </div>
+        
+        <div class="social-links">
+            <h3>Find me on social media</h3>
+            <div class="social-grid">
+                <a href="https://github.com/amcodecase" target="_blank" class="social-card">
+                    <i class="fab fa-github"></i>
+                    <span>GitHub</span>
+                </a>
+                <a href="https://linkedin.com/in/amcodecase" target="_blank" class="social-card">
+                    <i class="fab fa-linkedin"></i>
+                    <span>LinkedIn</span>
+                </a>
+                <a href="https://facebook.com/amcodecase" target="_blank" class="social-card">
+                    <i class="fab fa-facebook"></i>
+                    <span>Facebook</span>
+                </a>
+                <a href="https://twitter.com/amcodecase" target="_blank" class="social-card">
+                    <i class="fab fa-twitter"></i>
+                    <span>Twitter</span>
+                </a>
             </div>
         </div>
     </div>
-</section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-5 bg-light">
-        <div class="container">
-            <h2 class="text-center mb-5 section-title">Contact</h2>
-            <div class="row">
-                <div class="col-md-4 text-center">
-                    <a href="https://linkedin.com/in/amcodecase" target="_blank">
-                        <i class="contact-icon fab fa-linkedin"></i>
-                    </a>
-                </div>
-                <div class="col-md-4 text-center">
-                    <a href="mailto:michelojustus@gmail.com">
-                        <i class="contact-icon fas fa-envelope"></i>
-                    </a>
-                </div>
-                <div class="col-md-4 text-center">
-                    <a href="https://github.com/amcodecase" target="_blank">
-                        <i class="contact-icon fab fa-github"></i>
-                    </a>
+    <footer class="footer">
+    <div class="footer-content">
+        <div class="footer-top">
+            <div class="footer-logo">
+                <i class="fas fa-terminal"></i>
+                <h3>Michelo Justus</h3>
+                <p>Cybersecurity Specialist & Developer</p>
+            </div>
+            <div class="quick-links">
+                <h4>Quick Links</h4>
+                <nav>
+                    <a href="#home"><i class="fas fa-home"></i> Home</a>
+                    <a href="#about"><i class="fas fa-user-secret"></i> About</a>
+                    <a href="#achievements"><i class="fas fa-trophy"></i> Achievements</a>
+                    <a href="#skills"><i class="fas fa-code"></i> Skills</a>
+                    <a href="#mentorship"><i class="fas fa-graduation-cap"></i> Mentorship</a>
+                    <a href="#contact"><i class="fas fa-network-wired"></i> Contact</a>
+                </nav>
+            </div>
+            <div class="footer-social">
+                <h4>Connect</h4>
+                <div class="social-icons">
+                    <a href="https://github.com/amcodecase" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://linkedin.com/in/amcodecase" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://facebook.com/amcodecase" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://twitter.com/amcodecase" target="_blank"><i class="fab fa-twitter"></i></a>
                 </div>
             </div>
         </div>
-    </section>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Michelo M Justus. All rights reserved.</p>
+            <p class="footer-quote">"Security is not a product, but a process." - Bruce Schneier</p>
+        </div>
+    </div>
 
-    <!-- Footer -->
-    <footer class="bg-custom-red text-white py-4 text-center">
-        <p>&copy; 2025 Michelo Justus. All Rights Reserved.</p>
-    </footer>
 
-    <!-- Bootstrap JS, Popper, Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-    <!-- Scroll Animation JS -->
+
     <script>
-        // Initialize Swiper
-        const swiper = new Swiper('.swiper', {
-            loop: true,
-            slidesPerView: 1,
-            spaceBetween: 10,
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev'
-            },
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true
-            }
+        // Mobile menu toggle
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
         });
 
-        // Scroll animations
-        const elements = document.querySelectorAll('.animate-on-scroll');
+        // Blur effect on scroll
         window.addEventListener('scroll', () => {
-            elements.forEach(element => {
-                if (element.getBoundingClientRect().top < window.innerHeight) {
-                    element.classList.add('visible');
-                }
-            });
+            const navbar = document.querySelector('.navbar');
+            const scrolled = window.scrollY > 50;
+            navbar.style.backdropFilter = `blur(${scrolled ? '15px' : '10px'})`;
+            navbar.style.background = `rgba(47, 54, 95, ${scrolled ? '0.95' : '0.9'})`;
         });
     </script>
 </body>
