@@ -11,7 +11,7 @@
     <nav class="navbar">
         <div class="logo">
             <i class="fas fa-terminal"></i>
-            Michelo Justus
+            Michelo M Justus
         </div>
         <div class="mobile-menu">
             <i class="fas fa-bars"></i>
@@ -30,6 +30,13 @@
         <div class="content-overlay">
             <h1>Welcome to My Portfolio</h1>
             <p>Scroll down to explore my work and experience.</p>
+            <div class="quote-container">
+                <div class="quote">"Ever wondered why this site is similar to Laracasts site... it's because I learned from there. That motivated my PHP journey big time! 💻"</div>
+                <div class="quote">"Code is poetry written in logic, and every bug is just a lesson in disguise 🎯"</div>
+                <div class="quote">"The best projects start with 'what if...' and end with 'why not?' 🚀"</div>
+                <div class="quote">"Building things that matter, one line of code at a time ⚡"</div>
+                <div class="quote">"Turning coffee into code and dreams into reality 🎮"</div>
+            </div>
         </div>
         <section id="about" class="about-section">
     <div class="about-container">
@@ -67,7 +74,7 @@
                         <p><span class="terminal-prompt">$</span> <span class="command">ls ./interests</span></p>
                         <p class="response">📁 Ethical Hacking<br>📁 Software Engineering<br>📁 Education / Mentorship<br>📁 Innovation<br>📁 Financial Technology</p>
                         <p><span class="terminal-prompt">$</span> <span class="command">./experience.sh</span></p>
-                        <p class="response">▶ Innovative Dynamics Limited as a software developer (Attachments) <br>▶ Zambia Qualifications Authority as a software developer (Internship) <br>▶ Chalimbana University ICTAZ Student Chapter President</p>
+                        <p class="response">▶ Innovative Dynamics Limited as a software developer (Industrial Attachments) <br>▶ Zambia Qualifications Authority as a software developer (Internship) <br>▶ Chalimbana University ICTAZ Student Chapter Founder & 1st President (2 years)</p>
                     </div>
                 </div>
             </div>
@@ -144,7 +151,6 @@
                     <span>Presentation</span>
                 </div>
             </div>
-
             <div class="achievement-card">
                 <div class="achievement-icon">
                     <i class="fas fa-lightbulb"></i>
@@ -157,6 +163,23 @@
                     <span>Problem Solving</span>
                     <span>Technology</span>
                 </div>
+            </div>
+
+            <div class="achievement-card">
+               <div class="achievement-icon">
+                   <i class="fas fa-star"></i>
+               </div>
+               <h3>Academic Excellence: Multiple Distinctions</h3>
+               <p class="achievement-year">2021-2025</p>
+               <p>Achieved Distinctions in key technical courses demonstrating mastery of fundamental computer science concepts.</p>
+               <div class="skills-showcase">
+                   <span>Information Security</span>
+                   <span>DBMS</span>
+                   <!-- <span>Web App Dev</span> -->
+                   <span>Electronics</span>
+                   <span>Programming</span>
+                   <span>Project</span>
+               </div>
             </div>
         </div>
     </div>
@@ -233,6 +256,52 @@
                     <span>Adaptability</span>
                 </div>
             </div>
+
+            <!-- Digital Forensics Card -->
+<div class="skill-card">
+   <div class="skill-icon">
+       <i class="fas fa-search"></i>
+   </div>
+   <h3>Digital Forensics</h3>
+   <p>Data recovery and investigation specialist with expertise in digital evidence handling</p>
+   <div class="skill-tags">
+       <span>Data Recovery</span>
+       <span>Monitoring</span>
+       <!-- <span>Evidence Analysis</span> -->
+       <!-- <span>Chain of Custody</span> -->
+   </div>
+</div>
+
+<!-- Team Leadership Card -->
+<div class="skill-card">
+   <div class="skill-icon">
+       <i class="fas fa-users-gear"></i>
+   </div>
+   <h3>Team Leadership</h3>
+   <p>Leading technical teams with focus on agile methodologies and project delivery</p>
+   <div class="skill-tags">
+       <span>Team Building</span>
+       <span>Project Management</span>
+       <!-- <span>Mentoring</span> -->
+       <!-- <span>Agile</span> -->
+   </div>
+</div>
+
+<!-- Network Engineering Card -->
+<div class="skill-card">
+   <div class="skill-icon">
+       <i class="fas fa-network-wired"></i>
+   </div>
+   <h3>Network Engineering</h3>
+   <p>Troubleshoot & Configure Networks</p>
+   <div class="skill-tags">
+       <span>Cisco</span>
+       <span>Routing & Switching</span>
+       <span>VLANs</span>
+       <span>Firewalls</span>
+       <!-- <span>VPNs</span> -->
+   </div>
+</div>
         </div>
     </div>
 
@@ -317,6 +386,47 @@
             </div>
         </div>
     </div>
+<!-- Floating Chatbot -->
+<div id="floating-chatbot">
+    <!-- Chat Icon -->
+    <div id="chat-icon" onclick="toggleChat()">
+        <i class="fas fa-robot"></i>
+    </div>
+    <!-- Chat Window -->
+    <div id="chat-window" class="hidden">
+        <div class="chat-header">
+            <h3><i class="fas fa-robot"></i> NOVA</h3>
+            <button id="close-chat" onclick="toggleChat()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div id="chat-messages">
+            <div class="message bot">
+                <div class="message-content">
+                    👋 Hey! I'm NOVA (Neural Operational Virtual Assistant), Case's digital mini-me in training. He's building me from scratch which is... interesting, since AI development is totally new to him 😅
+                </div>
+            </div>
+            <div class="message bot">
+                <div class="message-content">
+                    Currently in development limbo - you know how it goes, he's either super busy with work, stuck debugging something, bored, clueless (as usual) or got distracted by a new side project (classic Case! 🤷‍♂️). But hey, when I'm ready, I'll be here 24/7 to chat about anything, the way Case can Would!
+                </div>
+            </div>
+            <div class="message bot">
+                <div class="message-content">
+                    Can't reach Case? No worries - that's what I'm here for! I'll be able to help with pretty much everything he does (except dating, that's where I draw the line 😆). Your conversations with me will be encrypted, so they'll stay just between us. For now though, I'm just a friendly face in development! 🤖✨
+                </div>
+            </div>
+        </div>
+        <div class="chat-input-container">
+            <div class="chat-input-wrapper">
+                <input type="text" id="chat-input" placeholder="Coming soon..." disabled>
+                <button id="send-message" disabled>
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
 
     <footer class="footer">
     <div class="footer-content">
@@ -352,9 +462,6 @@
             <p class="footer-quote">"Security is not a product, but a process." - Bruce Schneier</p>
         </div>
     </div>
-
-
-
     <script>
         // Mobile menu toggle
         const mobileMenu = document.querySelector('.mobile-menu');
@@ -371,6 +478,42 @@
             navbar.style.backdropFilter = `blur(${scrolled ? '15px' : '10px'})`;
             navbar.style.background = `rgba(47, 54, 95, ${scrolled ? '0.95' : '0.9'})`;
         });
+
+        function toggleChat() {
+            const chatWindow = document.getElementById('chat-window');
+            const chatIcon = document.getElementById('chat-icon');
+            
+            if (chatWindow.classList.contains('hidden')) {
+                chatWindow.classList.remove('hidden');
+                chatWindow.classList.add('fade-in');
+                chatIcon.innerHTML = '<i class="fas fa-times"></i>';
+            } else {
+                chatWindow.classList.add('hidden');
+                chatWindow.classList.remove('fade-in');
+                chatIcon.innerHTML = '<i class="fas fa-robot"></i>';
+            }
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+    const quotes = document.querySelectorAll('.quote');
+    let currentQuote = 0;
+
+    function showNextQuote() {
+        // Remove active class from all quotes
+        quotes.forEach(quote => quote.classList.remove('active'));
+        
+        // Show next quote
+        quotes[currentQuote].classList.add('active');
+        
+        // Update counter
+        currentQuote = (currentQuote + 1) % quotes.length;
+    }
+
+    // Show first quote immediately
+    showNextQuote();
+
+    // Change quote every 5 seconds
+    setInterval(showNextQuote, 5000);
+});
     </script>
 </body>
 </html>
