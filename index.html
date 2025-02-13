@@ -1233,6 +1233,65 @@
         right: 10px;
     }
 }
+.visitor-stats {
+    display: flex;
+    gap: 2rem;
+    margin: 1rem 0;
+    font-size: 1.1rem;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+}
+
+#visitorCount {
+    color: #38bdf8; /* Brighter blue for better visibility */
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+#starButton {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: none;
+    background: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+}
+
+#starButton:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+#starButton:hover #starIcon {
+    stroke: #fbbf24; /* Brighter yellow for hover */
+}
+
+#starCount {
+    font-weight: 600;
+    color: #e5e7eb; /* Light gray for better visibility */
+    font-size: 1.2rem;
+}
+
+/* When star is active */
+#starButton.starred {
+    cursor: default;
+}
+
+#starButton.starred #starIcon {
+    fill: #fbbf24; /* Brighter yellow for active state */
+    stroke: #fbbf24;
+}
+
+#starIcon {
+    transition: all 0.2s ease;
+    stroke: #e5e7eb; /* Light gray for better visibility */
+    stroke-width: 2;
+}
     </style>
 </head>
 <body>
@@ -1255,17 +1314,33 @@
         </ul>
     </nav>
     <main class="content">
-        <div class="content-overlay">
-            <h1>Welcome to My Portfolio</h1>
-            <p>Scroll down to explore my work and experience.</p>
-            <div class="quote-container">
-                <div class="quote">"Ever wondered why this site is similar to Laracasts site... it's because I learned from there. That motivated my PHP journey big time! 💻"</div>
-                <div class="quote">"Code is poetry written in logic, and every bug is just a lesson in disguise 🎯"</div>
-                <div class="quote">"The best projects start with 'what if...' and end with 'why not?' 🚀"</div>
-                <div class="quote">"Building things that matter, one line of code at a time ⚡"</div>
-                <div class="quote">"Turning coffee into code and dreams into reality 🎮"</div>
-            </div>
+<div class="content-overlay">
+    <h1>Welcome to My Portfolio</h1>
+    <p>Scroll down to explore my work and experience.</p>
+    
+    <div class="visitor-stats" style="display: flex; gap: 2rem; margin: 1rem 0;">
+        <div>
+            <span>👥 Visitors: </span>
+            <span id="visitorCount" style="color: #2563eb; font-weight: 600;">0</span>
         </div>
+        <div>
+            <button id="starButton" style="display: flex; align-items: center; gap: 0.5rem; border: none; background: none; cursor: pointer;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="starIcon">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                </svg>
+                <span id="starCount">0</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="quote-container">
+        <div class="quote">"Ever wondered why this site is similar to Laracasts site... it's because I learned from there. That motivated my PHP journey big time! 💻"</div>
+        <div class="quote">"Code is poetry written in logic, and every bug is just a lesson in disguise 🎯"</div>
+        <div class="quote">"The best projects start with 'what if...' and end with 'why not?' 🚀"</div>
+        <div class="quote">"Building things that matter, one line of code at a time ⚡"</div>
+        <div class="quote">"Turning coffee into code and dreams into reality 🎮"</div>
+    </div>
+</div>
         <section id="about" class="about-section">
     <div class="about-container">
         <div class="about-header">
@@ -1686,7 +1761,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 Michelo M Justus. All rights reserved.</p>
+            <p>&copy; 2025 Michelo M Justus. All rights reserved.</p>
             <p class="footer-quote">"Security is not a product, but a process." - Bruce Schneier</p>
         </div>
     </div>
@@ -1742,6 +1817,67 @@
         // Change quote every 5 seconds
         setInterval(showNextQuote, 5000);
     });
+        // Initialize visitor counter
+function initVisitorCounter() {
+    let visitors = localStorage.getItem('siteVisitors') || 0;
+    
+    // Only increment if this is a new session
+    if (!sessionStorage.getItem('counted')) {
+        visitors = parseInt(visitors) + 1;
+        localStorage.setItem('siteVisitors', visitors);
+        sessionStorage.setItem('counted', 'true');
+    }
+    
+    document.getElementById('visitorCount').textContent = visitors;
+}
+
+// Initialize star system
+function initStarSystem() {
+    const starButton = document.getElementById('starButton');
+    const starIcon = document.getElementById('starIcon');
+    const starCount = document.getElementById('starCount');
+    
+    let stars = parseInt(localStorage.getItem('siteStars')) || 0;
+    let hasStarred = localStorage.getItem('userStarred') === 'true';
+    
+    starCount.textContent = stars;
+    
+    // Update star appearance if user has already starred
+    if (hasStarred) {
+        starIcon.style.fill = '#eab308';
+        starIcon.style.stroke = '#eab308';
+        starButton.style.cursor = 'default';
+    } else {
+        starButton.addEventListener('mouseover', () => {
+            starIcon.style.stroke = '#eab308';
+        });
+        
+        starButton.addEventListener('mouseout', () => {
+            if (!hasStarred) {
+                starIcon.style.stroke = 'currentColor';
+            }
+        });
+    }
+    
+    starButton.addEventListener('click', () => {
+        if (!hasStarred) {
+            stars++;
+            localStorage.setItem('siteStars', stars);
+            localStorage.setItem('userStarred', 'true');
+            starCount.textContent = stars;
+            starIcon.style.fill = '#eab308';
+            starIcon.style.stroke = '#eab308';
+            starButton.style.cursor = 'default';
+            hasStarred = true;
+        }
+    });
+}
+
+// Initialize everything when the page loads
+document.addEventListener('DOMContentLoaded', () => {
+    initVisitorCounter();
+    initStarSystem();
+});
     </script>
 </body>
 </html>
